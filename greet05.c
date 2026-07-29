@@ -17,21 +17,93 @@ int main(int argc, char *argv[])
     int mp;
     char time_string_buffer[64];
 
-        char moon_phase_ascii[1][8][30] = {
+    char moon_phase_ascii[8][8][15] = {
       {
-        "      _..._    ",
-        "    .::::. `.  ",
-        "   :::::::.  : ",
-        "   ::::::::  : ",
-        "   `::::::' .' ",
-        "     `'::'-'   ",
+        "     _..._     ",
+        "   .::::. `.   ",
+        "  :::::::.  :  ",
+        "  ::::::::  :  ",
+        "  `::::::' .'  ",
+        "    `'::'-'    ",
         "               ",
         "WAXING CRESCENT"
+      },
+      {
+        "    _..._    ",
+        "  .::::  `.  ",
+        " ::::::    : ",
+        " ::::::    : ",
+        " `:::::   .' ",
+        "   `'::.-'   ",
+        "             ",
+        "FIRST QUARTER"
+      },
+      {
+        "     _..._    ",
+        "   .::'   `.  ",
+        "  :::       : ",
+        "  :::       : ",
+        "  `::.     .' ",
+        "    `':..-'   ",
+        "              ",
+        "WAXING GIBBOUS"
+      },
+      {
+        "   _..._   ",
+        " .'     `. ",
+        ":         :",
+        ":         :",
+        "`.       .'",
+        "  `-...-'  ",
+        "           ",
+        " FULL MOON "
+      },
+      {
+        "     _..._    ",
+        "   .'   `::.  ",
+        "  :       ::: ",
+        "  :       ::: ",
+        "  `.     .::' ",
+        "    `-..:''   ",
+        "              ",
+        "WANING GIBBOUS"
+      },
+      {
+        "    _..._   ",
+        "  .'  ::::. ",
+        " :    ::::::",
+        " :    ::::::",
+        " `.   :::::'",
+        "   `-.::''  ",
+        "            ",
+        "LAST QUARTER"
+      },
+      {
+        "     _..._     ",
+        "   .' .::::.   ",
+        "  :  ::::::::  ",
+        "  :  ::::::::  ",
+        "  `. '::::::'  ",
+        "    `-.::''    ",
+        "               ",
+        "WANING CRESCENT"
+      },
+      {
+        "   _..._   ",
+        " .:::::::. ",
+        ":::::::::::",
+        ":::::::::::",
+        "`:::::::::'",
+        "  `':::''  ",
+        "           ",
+        "  NEW MOON "
       }
     };
 
     time(&now);
     clock = localtime(&now);
+
+    mp = moon_phase(clock->tm_year+1900, clock->tm_mon, clock->tm_mday);
 
     /*
      * strftime es como printf. Sirve para formatear el tiempo como un string.
@@ -72,7 +144,7 @@ int main(int argc, char *argv[])
 
     for (int i = 0; i < 8; i++)
     {
-      printf("%s\n", moon_phase_ascii[0][i]);
+      printf("%s\n", moon_phase_ascii[mp][i]);
     }
 
     return 0;
