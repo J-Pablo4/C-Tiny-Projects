@@ -14,7 +14,21 @@ int main(int argc, char *argv[])
     time_t now;
     struct tm *clock;
     int hour;
+    int mp;
     char time_string_buffer[64];
+
+        char moon_phase_ascii[1][8][30] = {
+      {
+        "      _..._    ",
+        "    .::::. `.  ",
+        "   :::::::.  : ",
+        "   ::::::::  : ",
+        "   `::::::' .' ",
+        "     `'::'-'   ",
+        "               ",
+        "WAXING CRESCENT"
+      }
+    };
 
     time(&now);
     clock = localtime(&now);
@@ -55,6 +69,11 @@ int main(int argc, char *argv[])
     printf("\n%s", time_string_buffer);
     JUMP
     JUMP
+
+    for (int i = 0; i < 8; i++)
+    {
+      printf("%s\n", moon_phase_ascii[0][i]);
+    }
 
     return 0;
 }
