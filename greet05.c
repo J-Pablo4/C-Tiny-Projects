@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <time.h>
+#include <unistd.h>
 
 #define JUMP printf("\n");
 
@@ -142,9 +143,12 @@ int main(int argc, char *argv[])
     JUMP
     JUMP
 
+    puts("Moon phase:");
+
     for (int i = 0; i < 8; i++)
     {
       printf("%s\n", moon_phase_ascii[mp][i]);
+      usleep(300000);
     }
 
     return 0;
