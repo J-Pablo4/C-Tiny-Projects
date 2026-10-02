@@ -57,7 +57,5 @@ int main(void)
     fclose(file_pointer);
 end:
     printf("Reached THE END!\n");
-    
-
     return 0;
 }
