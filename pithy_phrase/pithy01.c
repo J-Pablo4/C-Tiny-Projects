@@ -34,7 +34,22 @@ int main(void)
         r = fgets(buffer, BSIZE, file_pointer);
         if(r==NULL)
             break;
-        printf("%s", buffer);
+        
+        // Syntax ptr = malloc(size);
+        // char es un byte pero como necesitamos que sea del tamaño del texto guardado en buffer 
+        // Lo multiplicamos por strlen(buffer) + 1. El "+ 1 seguramente es para tener en cuenta al caracter terminador.
+        // El cast es para decirle para que tipo de pointer va a ser
+        /*
+        Note: In C, an explicit cast such as (int *)malloc(...) is not required. malloc() returns a void *, which can be implicitly converted to another object pointer type in C.*/
+        entry = (char *)malloc(sizeof(char) * strlen(buffer) + 1);
+        if(entry == NULL)
+        {
+            fprintf(stderr, "unable to allocate memory\n");
+            exit(1);
+        }
+        strcpy(entry, buffer);
+        printf("%d: %s\n", items, entry);
+        items++;
     }
 
     fclose(file_pointer);
