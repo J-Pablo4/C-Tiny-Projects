@@ -34,6 +34,8 @@ int main(void)
         r = fgets(buffer, BSIZE, file_pointer);
         if(r==NULL)
             break;
+
+        goto end;
         
         // Syntax ptr = malloc(size);
         // char es un byte pero como necesitamos que sea del tamaño del texto guardado en buffer 
@@ -53,6 +55,9 @@ int main(void)
     }
 
     fclose(file_pointer);
+end:
+    printf("Reached THE END!\n");
+    
 
     return 0;
 }
