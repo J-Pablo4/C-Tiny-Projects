@@ -14,7 +14,8 @@ int main(void)
     FILE *file_pointer;
     // Arreglo donde se van a guardar las frases que se lean del archivo. Solo una frase
     char buffer[BSIZE];
-    char *r;
+    char *r, *entry;
+    int items = 0;
     goto end;
 
 
