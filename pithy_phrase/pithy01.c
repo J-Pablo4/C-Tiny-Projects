@@ -15,6 +15,7 @@ int main(void)
     // Arreglo donde se van a guardar las frases que se lean del archivo. Solo una frase
     char buffer[BSIZE];
     char *r;
+    goto end;
 
 
     file_pointer = fopen(filename, "r");
@@ -34,8 +35,6 @@ int main(void)
         r = fgets(buffer, BSIZE, file_pointer);
         if(r==NULL)
             break;
-
-        goto end;
         
         // Syntax ptr = malloc(size);
         // char es un byte pero como necesitamos que sea del tamaño del texto guardado en buffer 
