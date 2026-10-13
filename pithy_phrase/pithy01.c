@@ -65,7 +65,8 @@ int main(void)
             exit(1);
         }
         strcpy(entry, buffer);
-        printf("%d: %s\n", items, entry);
+        // Aqui estamos guardando las addresses de entry en list_base que es un arreglo de addresses. Se utiliza items para avanzar por el arreglo
+        *(list_base + items) = entry;
         items++;
     }
 
