@@ -147,8 +147,8 @@ int main(int argc, char *argv[])
 
     for (int i = 0; i < 8; i++)
     {
-      printf("mp-> %d", mp);
       printf("%s\n", moon_phase_ascii[mp][i]);
+      fflush(stdout);
       usleep(300000);
     }
 
