@@ -17,7 +17,6 @@ int main(void)
     char buffer[BSIZE];
     char *r, *entry;
     int items = 0;
-    goto end;
 
 
     file_pointer = fopen(filename, "r");
@@ -56,7 +55,5 @@ int main(void)
     }
 
     fclose(file_pointer);
-end:
-    printf("Reached THE END!\n");
     return 0;
 }
