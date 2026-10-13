@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     int mp;
     char time_string_buffer[64];
 
-    char moon_phase_ascii[8][8][15] = {
+    char moon_phase_ascii[8][8][16] = {
       {
         "     _..._     ",
         "   .::::. `.   ",
@@ -148,7 +148,6 @@ int main(int argc, char *argv[])
     for (int i = 0; i < 8; i++)
     {
       printf("%s\n", moon_phase_ascii[mp][i]);
-      fflush(stdout);
       usleep(300000);
     }
 
