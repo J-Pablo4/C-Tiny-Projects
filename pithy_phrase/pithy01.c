@@ -71,5 +71,11 @@ int main(void)
     }
 
     fclose(file_pointer);
+
+    // Aqui se imprimen los strings a pantalla utilizando el address guardado en list_base y el numero de items que se leyeron en el archivo
+    for(x = 0; x < items; x++)
+    {
+        printf("%s," *(list_base+x));
+    }
     return 0;
 }
